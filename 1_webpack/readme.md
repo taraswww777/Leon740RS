@@ -1,3 +1,10 @@
+# Questions
+
+- why does CopyWebpackPlugin runs only on 'npm run build' (not 'npm run start'), is it ok?
+- how to make font files be located in the /assets/fonts/ folder, on build they are generated right in /dist/ folder
+
+![](./question.png)
+
 ## Create folders:
 
 ```
