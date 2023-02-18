@@ -1,4 +1,5 @@
-const { merge } = require('webpack-merge');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const {merge} = require('webpack-merge');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const commonConfig = require('./webpack.config.common');
 
@@ -8,7 +9,7 @@ module.exports = merge(commonConfig, {
   plugins: [new ESLintPlugin()],
   devServer: {
     port: 3000,
-    hot: true,
+    hot: true
     // open: true,
-  },
+  }
 });

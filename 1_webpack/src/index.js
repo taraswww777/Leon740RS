@@ -35,28 +35,28 @@ $appList.addEventListener('click', (event) => {
 
   if (!$activeItem) return;
 
-  const activeData = DATA.find(record => record.name === $activeItem.dataset.name);
+  const activeData = DATA.find((record) => record.name === $activeItem.dataset.name);
 
   // bg
   $appImg.src = activeData.img;
-  
+
   // audio
   // icon
   const parent = $activeItem.closest('.app__list');
 
-  for (let child of parent.children) {
+  [...parent.children].forEach((child) => {
     if ($activeItem.dataset.name !== child.dataset.name) {
       child.classList.remove('list__item--active');
     }
-  }
+  });
 
   $activeItem.classList.toggle('list__item--active');
 
   // play / pause
-  for (let dataItem of DATA) {
-    dataItem.audio.pause();
-  }
+  DATA.forEach((dataItem) => dataItem.audio.pause());
 
   activeAudio = activeData.audio;
-  $activeItem.classList.contains('list__item--active') && activeAudio.play();
+  if ($activeItem.classList.contains('list__item--active')) {
+    activeAudio.play();
+  }
 });

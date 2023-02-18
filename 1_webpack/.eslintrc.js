@@ -4,13 +4,16 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: 'eslint:recommended',
-  overrides: [
-  ],
+  extends: ['airbnb', 'prettier'],
+  plugins: ['prettier'],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   rules: {
-  },
+    'prettier/prettier': ['error'],
+    'global-require': 'off',
+    quotes: ['error', 'single']
+  }
 };
