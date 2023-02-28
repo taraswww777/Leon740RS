@@ -8,48 +8,65 @@ const dirDist = 'dist';
 const dirPublic = 'public';
 
 module.exports = {
-  entry: path.resolve(__dirname, `${dirSrc}/index.js`),
+  entry: path.resolve(__dirname, `${dirSrc}/index.ts`),
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, dirDist),
-    clean: true,
+    clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, `${dirPublic}/index.html`),
+      template: path.resolve(__dirname, `${dirPublic}/index.html`)
     }),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, `${dirPublic}/favicon/`), to: path.resolve(__dirname, `${dirDist}/favicon/`) },
-        { from: path.resolve(__dirname, `${dirSrc}/assets/images/`), to: path.resolve(__dirname, `${dirDist}/assets/images/`) },
-        { from: path.resolve(__dirname, `${dirSrc}/assets/icons/`), to: path.resolve(__dirname, `${dirDist}/assets/icons/`) },
-        { from: path.resolve(__dirname, `${dirSrc}/assets/audios/`), to: path.resolve(__dirname, `${dirDist}/assets/audios/`) },
-      ],
+        {from: path.resolve(__dirname, `${dirPublic}/favicon/`), to: path.resolve(__dirname, `${dirDist}/favicon/`)},
+        {
+          from: path.resolve(__dirname, `${dirSrc}/assets/images/`),
+          to: path.resolve(__dirname, `${dirDist}/assets/images/`)
+        },
+        {
+          from: path.resolve(__dirname, `${dirSrc}/assets/icons/`),
+          to: path.resolve(__dirname, `${dirDist}/assets/icons/`)
+        },
+        {
+          from: path.resolve(__dirname, `${dirSrc}/assets/audios/`),
+          to: path.resolve(__dirname, `${dirDist}/assets/audios/`)
+        }
+      ]
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin()
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
+  },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.mp3$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
-    ],
-  },
+      {
+        test: /\.[tj]sx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  }
 };
