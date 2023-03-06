@@ -1,3 +1,4 @@
+// === Concept
 // abstract class : the same as interface but with a chance to mark methods
 abstract class Logger {
   abstract log(message: string) : void
