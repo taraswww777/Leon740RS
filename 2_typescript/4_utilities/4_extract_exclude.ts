@@ -11,15 +11,15 @@
   type TypeString = Extract<'name'| 'age' | string | false | 42, string>
   const str: TypeString = 'str';
 
-  interface User {
+  interface IntUser {
     name: string,
     age: number,
     hobbies: string[]
   }
 
   // 'name', 'age' object keys
-  type StringUserKeys = Extract<'name' | 'age', keyof User>
-  const stringUserKeys: StringUserKeys = 'age';
+  type TypeStringUserKeys = Extract<'name' | 'age', keyof IntUser>
+  const stringUserKeys: TypeStringUserKeys = 'age';
 
   // === Exclude
   // exclude type based on a condition from the list of types
@@ -29,5 +29,5 @@
   const notNumber1: TypeNotNumber = 'str';
   const notNumber2: TypeNotNumber = false;
 
-  type TypeNotUserKey = Exclude<'key' | 'age' | 'hobbies', keyof User> // key
+  type TypeNotUserKey = Exclude<'key' | 'age' | 'hobbies', keyof IntUser> // key
 }

@@ -47,14 +47,14 @@
     return arr.fill(value);
   }
 
-  const arrFilledA = fnFillArray1(ARRAY, 'a');
-  console.log(arrFilledA);
+  const arrFilledLetters1 = fnFillArray1(ARRAY, 'a');
+  console.log(arrFilledLetters1);
 
-  const arrFilled1 = fnFillArray1(ARRAY, 1);
-  console.log(arrFilled1);
+  const arrFilledNumbers1 = fnFillArray1(ARRAY, 1);
+  console.log(arrFilledNumbers1);
 
   // Let's imagine it is a big codebase and a dev used not the array he needs. in this case, this array will be empty
-  const arrRes1 = arrFilledA.filter((number: number) => number > 0);
+  const arrRes1 = arrFilledLetters1.filter((number: number) => number > 0);
   console.log(arrRes1);
 
   // === Solution
@@ -63,13 +63,13 @@
     return arr.fill(value);
   }
 
-  const arrFilledB = fnFillArray2(ARRAY, 'b');
-  console.log(arrFilledB);
+  const arrFilledLetters2: string[] = fnFillArray2(ARRAY, 'b');
+  console.log(arrFilledLetters2);
 
-  const arrFilled2 = fnFillArray2(ARRAY, 2);
-  console.log(arrFilled2);
+  const arrFilledNumbers2: number[] = fnFillArray2(ARRAY, 2);
+  console.log(arrFilledNumbers2);
 
   // Error
-  // const arrRes2 = arrFilledB.filter((number: number) => number > 0);
+  // const arrRes2 = arrFilledLetters2.filter((number: number) => number > 0);
   // console.log(arrRes2);
 }

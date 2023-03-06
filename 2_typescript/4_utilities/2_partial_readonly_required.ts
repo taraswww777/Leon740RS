@@ -1,14 +1,14 @@
 {
-  interface User {
+  interface IntUser {
     id?: number,
     name: string,
     age: number
   }
   
-  function fnCreateAndValidateUser(name: string, age: number): User {
+  function fnCreateAndValidateUser(name: string, age: number): IntUser {
     // === Partial
     // Make the object keys to be optional
-    const objUser: Partial<User> = {};
+    const objUser: Partial<IntUser> = {};
   
     if (name.length > 0) {
       objUser.name = name;
@@ -19,15 +19,15 @@
     }
   
     // use as to tell that some keys may be missing 
-    return objUser as User;
+    return objUser as IntUser;
   }
   
   // === Readonly
   // Remove the option to update the object
-  const objLeonid: Readonly<User> = { name: 'Leonid', age: 21 };
+  const objLeonid: Readonly<IntUser> = { name: 'Leonid', age: 21 };
   // objLeonid.name = 'Ford';
   
   // === Required
   // Make all of the object fields required
-  const objGrigoriy: Required<User> = { id: 0, name: 'Grigoriy', age: 22 };
+  const objGrigoriy: Required<IntUser> = { id: 0, name: 'Grigoriy', age: 22 };
 }
