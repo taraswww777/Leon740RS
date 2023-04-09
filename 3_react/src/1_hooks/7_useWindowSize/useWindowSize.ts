@@ -33,14 +33,14 @@ export default function useWindowSize(delayNum: number = 1000): IWindowSize {
     console.log(`width = ${debouncedWindowWidth}`);
     console.log(`height = ${debouncedWindowHeight}`);
 
-    function handleResizeFn(): void {
-      console.log('resize occurs every render');
+    function windowOnResizeFn(): void {
+      console.log('resize occurs on every render');
       setWindowSize(getWindowSizeFn());
     }
 
-    window.addEventListener('resize', handleResizeFn);
+    window.addEventListener('resize', windowOnResizeFn);
 
-    return () => window.removeEventListener('resize', handleResizeFn);
+    return () => window.removeEventListener('resize', windowOnResizeFn);
   }, [debouncedWindowWidth, debouncedWindowHeight]);
 
   return { width: debouncedWindowWidth, height: debouncedWindowHeight };

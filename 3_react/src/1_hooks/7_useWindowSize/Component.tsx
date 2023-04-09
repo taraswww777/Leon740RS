@@ -1,8 +1,10 @@
 import React from 'react';
 import useWindowSize from './useWindowSize';
 
+const TIMEOUT_NUM: number = 1000;
+
 function Component(): JSX.Element {
-  const { width, height } = useWindowSize(1000);
+  const { width, height } = useWindowSize(TIMEOUT_NUM);
 
   return (
     <>
