@@ -6,15 +6,15 @@ import useLocalStorage from './useLocalStorage';
 type TItemProps = {
   name: string;
   value: string;
-  onChange: Dispatch<SetStateAction<string>>;
+  onChange: Dispatch<SetStateAction<string>>; // (v: string) => voidвот такая должна быть типизация
 };
 
 function Item({
   name = '',
   value = '',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange = () => {}
-}: TItemProps): JSX.Element {
+  onChange = () => {} // это опциональный параметр?! если него не передать, то приложение работать не будет
+}: TItemProps): JSX.Element {// лишний тип JSX.Elemen
   return (
     <section>
       <h3>{value}</h3>
