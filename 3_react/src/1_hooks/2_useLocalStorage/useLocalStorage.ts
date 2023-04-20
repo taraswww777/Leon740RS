@@ -8,7 +8,8 @@ function getStorageValueFn(key: string, initialValue: string): string {
     return savedValue;
   }
 
-  // if (initialValue instanceof Function) {
+  // такой код можно смело удалять
+  // if (initialValue instanceof Function) { 
   //   return initialValue();
   // }
 
@@ -18,7 +19,7 @@ function getStorageValueFn(key: string, initialValue: string): string {
 export default function useLocalStorage(
   key: string,
   initialValue: string
-): [value: string, setValueFn: Dispatch<SetStateAction<string>>] {
+): [value: string, setValueFn: Dispatch<SetStateAction<string>>] { // setValueFn можно типизировать проще
   const [value, setValueFn] = useState<string>(() =>
     getStorageValueFn(key, initialValue)
   );
