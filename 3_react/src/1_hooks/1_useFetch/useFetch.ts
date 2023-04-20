@@ -4,7 +4,7 @@ interface IDataItem {
   id: number;
   title: string;
 }
-type TData = IDataItem[] | undefined;
+type TData = IDataItem[] | undefined; // undefined лишний
 type TIsLoading = boolean;
 type TError = boolean | number;
 type TRefetchFn = (params: object) => void;
@@ -33,7 +33,7 @@ export default function useFetch(
       fetch(fetchUrl)
         .then((response) => {
           if (!response.ok) {
-            setError(response.status);
+            setError(response.status); // ошибка с кодом 200 ?! если хочешь хранить сведения о статусе то вынеси в отдельный state
             setIsLoading(false);
             return false;
           }
