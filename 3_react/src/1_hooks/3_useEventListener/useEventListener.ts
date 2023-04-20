@@ -1,6 +1,6 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 
-export default function useEventListener(
+export default function useEventListener(// название хука должно быть useHover 
   eventName: string,
   handler: (event: Event) => void,
   element: HTMLElement | null | typeof window = window
