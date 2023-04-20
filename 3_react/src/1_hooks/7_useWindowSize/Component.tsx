@@ -3,7 +3,7 @@ import useWindowSize from './useWindowSize';
 
 const TIMEOUT_NUM: number = 1000;
 
-function Component(): JSX.Element {
+function Component(): JSX.Element {// : JSX.Element это лишнее
   const { width, height } = useWindowSize(TIMEOUT_NUM);
 
   return (
