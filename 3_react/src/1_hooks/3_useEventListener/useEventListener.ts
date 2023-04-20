@@ -3,7 +3,7 @@ import { useRef, useEffect, useLayoutEffect } from 'react';
 export default function useEventListener(
   eventName: string,
   handler: (event: Event) => void,
-  element: HTMLElement | null | typeof window = window
+  element: HTMLElement | null | typeof window = window // какаято жёсткая типизация и window тут лишний
 ): void {
   const savedHandler = useRef<(event: Event) => void>();
 
